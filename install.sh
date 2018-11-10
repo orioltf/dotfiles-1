@@ -9,6 +9,7 @@
 
 #
 # Reasonably sets OS X defaults. My sources:
+#  - https://github.com/atomantic/dotfiles
 #  - https://gist.github.com/garethrees/2470157
 #  - https://github.com/pawelgrzybek/dotfiles/blob/master/setup-macos.sh
 #  - https://github.com/nicksp/dotfiles/blob/master/osx/set-defaults.sh
