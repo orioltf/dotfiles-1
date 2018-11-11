@@ -1384,6 +1384,11 @@ if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
   ok
 fi
 
+running "copying custom ZSH files"
+action "cp lib_zsh/*.zsh oh-my-zsh/custom"
+cp lib_zsh/*.zsh oh-my-zsh/custom
+ok
+
 running "installing powerLevel9k theme"
 if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
