@@ -32,14 +32,21 @@ COMPUTERNAME="OrTF_mb-air"
 HOSTNAME='ortfair'
 LOCALHOSTNAME='ortfair'
 
+# Folders
+bin_dir="/usr/local/bin"
+work_dir="$HOME/Sites/"
+tools_dir="$HOME/Sites/_Tools"
+nvm_dir="$HOME/.nvm"
+torrents_dir="$HOME/Documents/Torrents"
+
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
+bot "I may need you to enter your sudo password so I can install some things:"
 
 # Ask for the administrator password upfront
 if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
-  bot "I need you to enter your sudo password so I can install some things:"
   sudo -v
 
   # Keep-alive: update existing sudo time stamp until the script has finished
@@ -55,6 +62,45 @@ if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/su
   #     sudo dscl . append /Groups/wheel GroupMembership $(whoami)
   #     bot "You can now run sudo commands without password!"
   # fi
+fi
+
+
+###############################################################################
+# Creating directories                                                        #
+###############################################################################
+
+bot "Creating directories"
+
+running "Creating $work_dir..."
+if [[ ! -e "$work_dir" ]]; then
+  mkdir $work_dir
+  ok
+else
+  info "Already created"
+fi
+
+running "Creating $tools_dir..."
+if [[ ! -e "$tools_dir" ]]; then
+  mkdir $tools_dir
+  ok
+else
+  info "Already created"
+fi
+
+running "Creating $nvm_dir..."
+if [[ ! -e "$nvm_dir" ]]; then
+  mkdir $nvm_dir
+  ok
+else
+  info "Already created"
+fi
+
+running "Creating $torrents_dir..."
+if [[ ! -e "$torrents_dir" ]]; then
+  mkdir $torrents_dir
+  ok
+else
+  info "Already created"
 fi
 
 
