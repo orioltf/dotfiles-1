@@ -1420,6 +1420,10 @@ running "installing fonts"
 # require_cask font-source-code-pro
 ok
 
+running "Make sure ZSH is up to date"
+upgrade_oh_my_zsh
+ok
+
 
 ###############################################################################
 # Kill affected applications                                                  #
