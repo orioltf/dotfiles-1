@@ -285,57 +285,6 @@ ok
 
 
 ###############################################################################
-# ZSH                                                                         #
-###############################################################################
-
-bot "setting zsh as the user login shell"
-CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
-if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-  bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
-  # sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-  # chsh -s /usr/local/bin/zsh
-  sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
-  ok
-fi
-
-running "installing powerLevel9k theme"
-if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
-  git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
-fi
-ok
-running "installing PowerLine fonts"
-if [[ ! -d "~/Sites/_Tools/powerline-fonts" ]]; then
-  git clone https://github.com/powerline/fonts.git ~/Sites/_Tools/powerline-fonts
-fi
-./Sites/_Tools/powerline-fonts/install.sh
-ok
-
-running "activating zsh-completions"
-rm -f ~/.zcompdump; compinit
-ok
-
-running "installing useful key bindings and fuzzy completion"
-# https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
-# https://sourabhbajaj.com/mac-setup/iTerm/fzf.html
-$(brew --prefix)/opt/fzf/install
-ok
-
-running "installing fonts"
-./fonts/install.sh
-# brew tap caskroom/fonts
-# require_cask font-fontawesome
-# require_cask font-awesome-terminal-fonts
-# require_cask font-hack
-# require_cask font-inconsolata-dz-for-powerline
-# require_cask font-inconsolata-g-for-powerline
-# require_cask font-inconsolata-for-powerline
-# require_cask font-roboto-mono
-# require_cask font-roboto-mono-for-powerline
-# require_cask font-source-code-pro
-ok
-
-
-###############################################################################
 # DOTFILES                                                                    #
 ###############################################################################
 
@@ -1419,6 +1368,58 @@ ok
   running "Make ⌘ + F focus the search input in iTunes"
   defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 }
+
+
+###############################################################################
+# ZSH                                                                         #
+###############################################################################
+
+bot "setting zsh as the user login shell"
+CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
+if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
+  bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
+  # sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+  # chsh -s /usr/local/bin/zsh
+  sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
+  ok
+fi
+
+running "installing powerLevel9k theme"
+if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
+  git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
+fi
+ok
+running "installing PowerLine fonts"
+if [[ ! -d "~/Sites/_Tools/powerline-fonts" ]]; then
+  git clone https://github.com/powerline/fonts.git ~/Sites/_Tools/powerline-fonts
+fi
+./Sites/_Tools/powerline-fonts/install.sh
+ok
+
+running "activating zsh-completions"
+rm -f ~/.zcompdump; compinit
+ok
+
+running "installing useful key bindings and fuzzy completion"
+# https://github.com/junegunn/fzf#fuzzy-completion-for-bash-and-zsh
+# https://sourabhbajaj.com/mac-setup/iTerm/fzf.html
+$(brew --prefix)/opt/fzf/install
+ok
+
+running "installing fonts"
+./fonts/install.sh
+# brew tap caskroom/fonts
+# require_cask font-fontawesome
+# require_cask font-awesome-terminal-fonts
+# require_cask font-hack
+# require_cask font-inconsolata-dz-for-powerline
+# require_cask font-inconsolata-g-for-powerline
+# require_cask font-inconsolata-for-powerline
+# require_cask font-roboto-mono
+# require_cask font-roboto-mono-for-powerline
+# require_cask font-source-code-pro
+ok
+
 
 ###############################################################################
 # Kill affected applications                                                  #
