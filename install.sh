@@ -108,6 +108,7 @@ fi
 # HOSTS                                                                       #
 ###############################################################################
 
+bot "setting up hosts"
 read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
 if [[ $response =~ (yes|y|Y) ]];then
     action "cp /etc/hosts /etc/hosts.backup"
@@ -117,6 +118,8 @@ if [[ $response =~ (yes|y|Y) ]];then
     sudo cp ./configs/hosts /etc/hosts
     ok
     bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
+else
+  info "hosts were left untouched"
 fi
 
 
