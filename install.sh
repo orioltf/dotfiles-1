@@ -225,7 +225,7 @@ fi
 
 
 ###############################################################################
-# Homebrew                                                         #
+# Homebrew                                                                    #
 ###############################################################################
 
 running "checking homebrew install"
@@ -257,8 +257,8 @@ fi
 
 
 ##############################################################################
-# Homebrew bundle                                                         #
-###############################################################################
+# Homebrew bundle                                                            #
+##############################################################################
 
 running "installing homebrew bundle"
 # output=$(brew tap | grep cask)
@@ -1367,6 +1367,7 @@ ok
   running "Make ⌘ + F focus the search input in iTunes"
   defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 }
+ok "System adjustments applied! ☺️"
 
 
 ###############################################################################
