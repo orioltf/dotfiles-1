@@ -353,7 +353,7 @@ nvm install --lts
 ok
 
 # always pin versions (no surprises, consistent dev/build machines)
-runnning "always pin versions (save-exact) for 'npm i'"
+running "always pin versions (save-exact) for 'npm i'"
 npm config set save-exact true
 ok
 
