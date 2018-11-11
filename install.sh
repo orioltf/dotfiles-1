@@ -561,6 +561,16 @@ ok
   running "Hide remaining battery time"
   defaults write com.apple.menuextra.battery ShowTime -string "NO"
 
+  running "Configure menu-extras in the menu bar"
+  defaults write com.apple.systemuiserver menuExtras -array \
+    "/System/Library/CoreServices/Menu Extras/TextInput.menu" \
+    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+    "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+    "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
 
   ###############################################################################
   bot "SSD-specific tweaks"
