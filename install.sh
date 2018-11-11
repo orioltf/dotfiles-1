@@ -1357,7 +1357,6 @@ ok
   ###############################################################################
   bot "iTunes"
   ###############################################################################
-  printf "%s - iTunes\n%s" $blue $end
 
   running "Disable the Ping sidebar in iTunes"
   defaults write com.apple.iTunes disablePingSidebar -bool true
