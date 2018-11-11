@@ -317,7 +317,7 @@ popd > /dev/null 2>&1
 # VIM                                                                         #
 ###############################################################################
 
-bot "Installing vim plugins"
+bot "installing vim plugins"
 # cmake is required to compile vim bundle YouCompleteMe
 # require_brew cmake
 vim +PluginInstall +qall > /dev/null 2>&1
@@ -1420,7 +1420,7 @@ running "installing fonts"
 # require_cask font-source-code-pro
 ok
 
-running "Make sure ZSH is up to date"
+running "making sure ZSH is up to date"
 upgrade_oh_my_zsh
 ok
 
