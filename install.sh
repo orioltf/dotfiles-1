@@ -311,18 +311,11 @@ if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
   git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
 fi
 ok
-running "installing PowerLine fonts"
+
+running "getting PowerLine fonts"
 if [[ ! -d "~/Sites/_Tools/powerline-fonts" ]]; then
   git clone https://github.com/powerline/fonts.git ~/Sites/_Tools/powerline-fonts
 fi
-./Sites/_Tools/powerline-fonts/install.sh
-ok
-
-running "activating zsh-completions"
-# make sure the path has the correct permissions to avoid insecrure directories warning:
-# https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
-sudo chmod -R 755 /usr/local/share
-rm -f ~/.zcompdump; compinit
 ok
 
 running "installing useful key bindings and fuzzy completion"
@@ -343,10 +336,6 @@ running "installing fonts"
 # require_cask font-roboto-mono
 # require_cask font-roboto-mono-for-powerline
 # require_cask font-source-code-pro
-ok
-
-running "making sure ZSH is up to date"
-upgrade_oh_my_zsh
 ok
 
 
@@ -407,20 +396,6 @@ ok
 
 bot "installing nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-ok
-
-
-###############################################################################
-# NPM                                                                         #
-###############################################################################
-
-bot "installing latest lts node version"
-nvm install --lts
-ok
-
-# always pin versions (no surprises, consistent dev/build machines)
-running "always pin versions (save-exact) for 'npm i'"
-npm config set save-exact true
 ok
 
 
