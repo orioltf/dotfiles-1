@@ -1170,6 +1170,7 @@ ok
   open ${tools_dir}/macos-terminal-themes/schemes/${TERMINAL_THEME}.terminal
 
   running "seting Terminal defaults"
+  # https://redlinetech.wordpress.com/2015/03/18/scripting-the-default-terminal-theme-in-os-x/
   sudo -u $USER defaults write /Users/$USER/Library/Preferences/com.apple.Terminal.plist "Default Window Settings" "FrontEndDelight"
   sudo -u $USER defaults write /Users/$USER/Library/Preferences/com.apple.Terminal.plist "Startup Window Settings" "FrontEndDelight"
 
