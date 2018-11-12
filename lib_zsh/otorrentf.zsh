@@ -23,7 +23,7 @@ export LANG=en_US.UTF-8
 #### CONFIG for Jira ZSH plugin
 JIRA_URL=https://jira.unic.com
 JIRA_NAME=oriol.torrent
-JIRA_PREFIX=KPTVPK-
+JIRA_PREFIX=ABC-
 
 
 ############################################################################
