@@ -39,6 +39,10 @@ tools_dir="$HOME/Sites/_Tools"
 nvm_dir="$HOME/.nvm"
 torrents_dir="$HOME/Documents/Torrents"
 
+# Set desired terminal theme name
+# https://github.com/lysyi3m/macos-terminal-themes.git
+TERMINAL_THEME="FrontEndDelight"
+
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 bot "I may need you to enter your sudo password so I can install some things:"
@@ -1158,6 +1162,20 @@ ok
 
   #running "Don’t display the annoying prompt when quitting iTerm"
   #defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+  running "installing terminal themes"
+  git clone https://github.com/lysyi3m/macos-terminal-themes.git ${tools_dir}/macos-terminal-themes
+
+  action "open the theme, so that it is included in the Library"
+  open ${tools_dir}/macos-terminal-themes/schemes/${TERMINAL_THEME}.terminal
+
+  running "seting Terminal defaults"
+  sudo -u $USER defaults write /Users/$USER/Library/Preferences/com.apple.Terminal.plist "Default Window Settings" "FrontEndDelight"
+  sudo -u $USER defaults write /Users/$USER/Library/Preferences/com.apple.Terminal.plist "Startup Window Settings" "FrontEndDelight"
+
+  #set window width to 180
+  sudo /usr/libexec/PlistBuddy -c "Add :Window\ Settings:FrontEndDelight:columnCount integer 180" /Users/$USER/Library/Preferences/com.apple.Terminal.plist
+  defaults write /Users/$USER/Library/Preferences/com.apple.Terminal.plist "NSWindow Frame TTWindow FrontEndDelight" "187 65 640 778 0 0 1440 877 "
 
 
   ###############################################################################
