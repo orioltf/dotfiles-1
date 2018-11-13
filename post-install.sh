@@ -6,6 +6,10 @@
 # @author Oriol Torrent Florensa
 ###########################
 
+# source nvm: https://unix.stackexchange.com/questions/184508/nvm-command-not-available-in-bash-script
+# source $(brew --prefix nvm)/nvm.sh # if installed via Brew; you shouldn't
+source ${HOME}/.nvm/nvm.sh
+
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
@@ -13,6 +17,21 @@ source ./lib_sh/requirers.sh
 # Set desired terminal theme name
 # https://github.com/lysyi3m/macos-terminal-themes.git
 TERMINAL_THEME="FrontEndDelight"
+
+
+###############################################################################
+# NPM                                                                         #
+###############################################################################
+
+bot "installing latest lts node version"
+
+nvm install --lts
+ok
+
+# always pin versions (no surprises, consistent dev/build machines)
+running "always pin versions (save-exact) for 'npm i'"
+npm config set save-exact true
+ok
 
 
 ###############################################################################
@@ -39,22 +58,8 @@ fi
 ok
 
 running "making sure ZSH is up to date"
-upgrade_oh_my_zsh
-ok
-
-
-###############################################################################
-# NPM                                                                         #
-###############################################################################
-
-bot "installing latest lts node version"
-
-nvm install --lts
-ok
-
-# always pin versions (no surprises, consistent dev/build machines)
-running "always pin versions (save-exact) for 'npm i'"
-npm config set save-exact true
+# the same than calling 'upgrade_oh_my_zsh' in a ZSH environment
+env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
 ok
 
 
@@ -69,8 +74,9 @@ running "Open Terminal > Prefernces (Cmd+,)"
 sleep 2
 running "Select the ${TERMINAL_THEME} theme"
 sleep 2
-running "Set a PowerLine font family (Ex: Meslo LG S DZ Regular Powerline"
+running "Set a PowerLine font family (Ex: Meslo LG S DZ Regular Powerline)"
 sleep 4
+echo -e "\n"
 read -r -p "Restart terminal? [Y|n] " response
 if [[ $response =~ ^(y|yes|Y) ]];then
     action "killing terminal..."
