@@ -48,7 +48,7 @@ bot "Hi! I'm going to install tooling and tweak your system settings. Here I go.
 bot "I may need you to enter your sudo password so I can install some things:"
 
 # Ask for the administrator password upfront
-if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/sudoers"; then
+if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #orioltf/dotfiles" "/etc/sudoers"; then
 
   # Ask for the administrator password upfront
   sudo -v
@@ -62,7 +62,7 @@ if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles" "/etc/su
 
   # if [[ $response =~ (yes|y|Y) ]];then
   #     sudo cp /etc/sudoers /etc/sudoers.back
-  #     echo '%wheel		ALL=(ALL) NOPASSWD: ALL #atomantic/dotfiles' | sudo tee -a /etc/sudoers > /dev/null
+  #     echo '%wheel		ALL=(ALL) NOPASSWD: ALL #orioltf/dotfiles' | sudo tee -a /etc/sudoers > /dev/null
   #     sudo dscl . append /Groups/wheel GroupMembership $(whoami)
   #     bot "You can now run sudo commands without password!"
   # fi
