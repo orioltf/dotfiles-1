@@ -30,7 +30,7 @@ if [[ $response =~ ^(y|yes|Y) ]];then
     running "re-installing bundle"
     brew bundle install --verbose
 else
-    exlit;
+    exit;
 fi
 ok
 
