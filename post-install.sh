@@ -20,6 +20,23 @@ TERMINAL_THEME="FrontEndDelight"
 
 
 ###############################################################################
+# HOMEBREW                                                                    #
+###############################################################################
+
+bot "re-installing failed packages (at least VirtualBox failed because Oracle is considered an unidentified developer)"
+
+read -r -p "Did you authorise Oracle in System Preferences > Security & Privacy? [Y|n] " response
+if [[ $response =~ ^(y|yes|Y) ]];then
+    running "re-installing bundle"
+    brew bundle install --verbose
+else
+    exlit;
+fi
+ok
+
+
+
+###############################################################################
 # NPM                                                                         #
 ###############################################################################
 
@@ -43,7 +60,7 @@ bot "finishing ZSH installation"
 read -r -p "Do you want to install Powerline fonts? [Y|n] " response
 if [[ $response =~ ^(y|yes|Y) ]];then
     running "installing PowerLine fonts"
-    ./Sites/_Tools/powerline-fonts/install.sh
+    ./Sites/_Tools/powerline-fonts/install.s
 fi
 ok
 
