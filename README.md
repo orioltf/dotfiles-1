@@ -87,7 +87,16 @@ To launch fullscreen, hit `Command + Enter` in iTerm, then use `Command + d` and
 git clone --recurse-submodules https://github.com/orioltf/dotfiles-1 ~/.dotfiles && cd ~/.dotfiles && ./install.sh
 ```
 
-* When it finishes reboot the system when the prompt requires so, then after the reboot run this:
+* When it finishes reboot the system when the prompt requires so. After the reboot you may see a message like the following in the terminal:
+
+```bash
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]?
+```
+
+If you see this message type `y` and `enter`. If not ignore this and go on.
+
+Finally, run the following command:
 
 ```bash
 ./post-install.sh
