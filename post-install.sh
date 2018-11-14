@@ -19,6 +19,21 @@ source ./lib_sh/requirers.sh
 TERMINAL_THEME="FrontEndDelight"
 
 
+bot "Hi again! Let's finish the system installation. Here I go..."
+bot "I may need you to enter your sudo password so I can install some things:"
+
+# Ask for the administrator password upfront
+if ! sudo grep -q "%wheel		ALL=(ALL) NOPASSWD: ALL #orioltf/dotfiles" "/etc/sudoers"; then
+
+  # Ask for the administrator password upfront
+  sudo -v
+
+  # Keep-alive: update existing sudo time stamp until the script has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+fi
+
+
+
 ###############################################################################
 # HOMEBREW                                                                    #
 ###############################################################################
@@ -30,6 +45,7 @@ if [[ $response =~ ^(y|yes|Y) ]];then
     running "re-installing bundle"
     brew bundle install --verbose
 else
+    error "Please authorise any Developer reported in System Preferences > Security & Privacy and then re-run again this script"
     exit;
 fi
 ok
