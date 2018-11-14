@@ -262,6 +262,9 @@ else
   fi
 fi
 
+running "opting out from Homebrew analytics"
+brew analytics off
+
 
 ##############################################################################
 # Homebrew bundle                                                            #
