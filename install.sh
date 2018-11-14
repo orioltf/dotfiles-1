@@ -276,7 +276,7 @@ running "installing homebrew bundle"
 # brew tap caskroom/versions > /dev/null 2>&1
 
 # https://github.com/Homebrew/homebrew-bundle
-brew bundle install
+brew bundle install --verbose
 ok
 
 # skip those GUI clients, git command-line all the way
