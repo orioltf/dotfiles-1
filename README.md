@@ -96,6 +96,8 @@ Ignore insecure directories and continue [y] or abort compinit [n]?
 
 If you see this message type `y` and `enter`. If not ignore this and go on.
 
+* When installing VirtualBox, it fails because the system expects a user action to allow Oracle applications to be allowed to install. Do so by openning System Preferences > Security & Privacy > Accept the message about Oracle application.
+
 Finally, run the following command:
 
 ```bash
