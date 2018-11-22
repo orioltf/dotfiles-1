@@ -7,8 +7,6 @@ tap "homebrew/core"
 brew "ack"
 # Programmable completion for Bash 3.2
 brew "bash-completion"
-# Perl lib for reading and writing EXIF metadata
-brew "exiftool"
 # Identify or delete duplicate files
 brew "fdupes"
 # Command-line fuzzy finder written in Go
@@ -79,6 +77,7 @@ cask "telegram"
 cask "ubiquiti-unifi-controller"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "vivaldi"
 cask "vlc"
 cask "webpquicklook"
 cask "webstorm"
