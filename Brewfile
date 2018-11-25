@@ -7,6 +7,8 @@ tap "homebrew/core"
 brew "ack"
 # Programmable completion for Bash 3.2
 brew "bash-completion"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
 # Identify or delete duplicate files
 brew "fdupes"
 # Command-line fuzzy finder written in Go
@@ -37,18 +39,23 @@ cask "calibre"
 cask "charles"
 cask "cheatsheet"
 cask "clipy"
+cask "cloudmounter"
 cask "cryptomator"
+cask "data-rescue"
 cask "diffmerge"
+cask "disk-sensei"
 cask "docker"
 cask "doxie"
 cask "enpass"
 cask "epubquicklook"
 cask "firefox"
 cask "firefox-developer-edition"
+cask "forklift"
 cask "franz"
 cask "google-chrome"
 cask "hetimazipql"
 cask "imageoptim"
+cask "imazing"
 cask "itsycal"
 cask "macpass"
 cask "microsoft-office"
@@ -84,3 +91,4 @@ cask "webpquicklook"
 cask "webstorm"
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "The Unarchiver", id: 425424353
+mas "Todoist", id: 585829637
